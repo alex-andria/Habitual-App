@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
 import Habit from "./Habit.png";
-// import "../nav.css";
+import "../nav.css";
 
 function NavBar({ user, setUser }) {
   function handleLogoutClick() {
@@ -30,31 +30,24 @@ function NavBar({ user, setUser }) {
         </Nav>
       </Wrapper>
 
-      {/* <header>
-        <img 
-          src={Habit} alt="Habitual Logo" 
-          className="avatar" 
-        />
-        <nav>
-          <ul>
-          <Logo>
-            <a href="/">Habitual</a>
-          </Logo>
-            <li>
-              <a href="#">Track New Habit</a>
-            </li>
-            <li>
-              <a href="#">Logout</a>
-            </li>
-          </ul>
-        </nav>
-      </header> */}
+      <div class="header">
+        <a href="#default" class="logo">
+          CompanyLogo
+        </a>
+        <div class="header-right">
+          <a class="active" href="#home">
+            Home
+          </a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
     </>
   );
 }
 
 const Wrapper = styled.header`
-  background-color: ##85C7F2;
+  background-color: ##85c7f2;
   position: fixed;
   top: 0;
   left: 0;
@@ -88,7 +81,7 @@ const Nav = styled.nav`
   gap: 4px;
   position: absolute;
   right: 8px;
-  background-color: ##85C7F2;
+  background-color: ##85c7f2;
 `;
 
 export default NavBar;
