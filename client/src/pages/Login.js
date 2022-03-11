@@ -9,6 +9,7 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
+
       {showLogin ? (
         <div className="form-center">
           <LoginForm onLogin={onLogin} />
@@ -20,7 +21,9 @@ function Login({ onLogin }) {
             </button>
           </p>
         </div>
+
       ) : (
+
         <div className="form-center">
           <SignUpForm onLogin={onLogin} />
           <Divider />
@@ -32,6 +35,7 @@ function Login({ onLogin }) {
           </p>
         </div>
       )}
+      
     </Wrapper>
   );
 }

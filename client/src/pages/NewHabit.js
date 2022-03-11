@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
-import ReactMarkdown from "react-markdown";
 import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
 
 function NewHabit({ user }) {
@@ -27,6 +26,7 @@ function NewHabit({ user }) {
         goal_days: goalDaysInput,
         user_id: user.id,
         color_code: habitColorInput,
+        goal_tracker: 0
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -46,7 +46,7 @@ function NewHabit({ user }) {
 
           {/*habitNameInput*/}
           <FormField>
-            <Label htmlFor="habitNameInput">Name</Label>
+            <Label htmlFor="habitNameInput">Habit Name</Label>
             <Input
               type="text"
               id="habitNameInput"
@@ -67,7 +67,7 @@ function NewHabit({ user }) {
 
           {/* goalDaysInput */}
           <FormField>
-            <Label htmlFor="goalDaysInput">Number of Days to Track Habit:</Label>
+            <Label htmlFor="goalDaysInput">Number Of Consistent Days to do Goal:</Label>
             <Input
               id="goalDaysInput"
               type="number"
@@ -100,12 +100,6 @@ function NewHabit({ user }) {
           </FormField>
         </form>
 
-      </WrapperChild>
-      <WrapperChild>
-        <h1></h1>
-        <p>
-           Wrapper Child
-        </p>
       </WrapperChild>
     </Wrapper>
 

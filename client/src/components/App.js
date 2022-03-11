@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
-import RecipeList from "../pages/RecipeList";
-import NewRecipe from "../pages/NewRecipe";
 import NewHabit from "../pages/NewHabit";
 import HabitList from "../pages/HabitList";
+import Habit from "./Habit";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [indivisualHabit, setIndivisualHabit]= useState(null)
 
    useEffect(() => {
     // auto-login
@@ -27,15 +27,17 @@ function App() {
 
       <main>
         <Switch>
-          <Route path="/new">
-            <NewRecipe user={user} />
-          </Route>
           <Route path="/newHabit">
             <NewHabit user={user} />
           </Route>
-          <Route path="/">
-            {/* <RecipeList /> */}
+          <Route  path="/habits/:id">
+            <Habit habit={indivisualHabit} />
+          </Route>
+          <Route path="/habits">
             <HabitList />
+          </Route>
+          <Route path="/">
+            <HabitList setIndivisualHabit={setIndivisualHabit}/>
           </Route>
         </Switch>
       </main>
@@ -45,3 +47,4 @@ function App() {
 }
 
 export default App;
+
