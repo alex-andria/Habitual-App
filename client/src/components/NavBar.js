@@ -16,30 +16,20 @@ function NavBar({ user, setUser }) {
 
   return (
     <>
-      <Wrapper>
-        <Logo>
-          <Link to="/">Habitual</Link>
-        </Logo>
-        <Nav>
-          <Button as={Link} to="/newHabit">
-            New Habit
-          </Button>
-          <Button variant="outline" onClick={handleLogoutClick}>
-            Logout
-          </Button>
-        </Nav>
-      </Wrapper>
+      
+
+       
 
       <div class="header">
-        <a href="#default" class="logo">
-          CompanyLogo
+        <a href="/home" class="logo">
+          {`Welcome to Habitual`}
         </a>
         <div class="header-right">
-          <a class="active" href="#home">
-            Home
-          </a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
+          <a  href="/home"> Home </a>
+          
+          <a  href="/newHabit">New Habit</a>
+          
+          <a  onClick={handleLogoutClick} href="/logOut">Log Out</a>
         </div>
       </div>
     </>

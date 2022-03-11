@@ -17,7 +17,7 @@ function Habit({habit}){
 
         <> 
         <button style={{backgroundColor: `${habit.color_code}`}} onClick={handleBackButton} >Back</button>
-        <div  style={{backgroundColor: `white`, border: '1rem solid'}}>
+        <div  style={{backgroundColor: `white`,padding: '20px'}}>
 
         <HabitSettings habit={habit}/>
         <h2>{habit.habit_name}</h2>

@@ -7,7 +7,7 @@ function NewHabit({ user }) {
   const [habitNameInput, setHabitNameInput] = useState('');
   const [goalDescriptionInput, setGoalDescriptionInput] = useState('');
   const [goalDaysInput, setGoalDaysInput] = useState('');
-  const [habitColorInput, setHabitColorInput] = useState('');
+  const [habitColorInput, setHabitColorInput] = useState('#000000');
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
@@ -39,13 +39,13 @@ function NewHabit({ user }) {
   }
 
   return (
-    <Wrapper>
-      <WrapperChild>
-        <h2>Create Habit</h2>
-        <form onSubmit={handleSubmit}>
+    <Wrapper >
+      <WrapperChild >
+        <h2>Set Your Habit Goals</h2>
+        <form onSubmit={handleSubmit} style={{padding: '20px'}}>
 
           {/*habitNameInput*/}
-          <FormField>
+          <FormField >
             <Label htmlFor="habitNameInput">Habit Name</Label>
             <Input
               type="text"
@@ -67,7 +67,7 @@ function NewHabit({ user }) {
 
           {/* goalDaysInput */}
           <FormField>
-            <Label htmlFor="goalDaysInput">Number Of Consistent Days to do Goal:</Label>
+            <Label htmlFor="goalDaysInput">Number of days to track goal:</Label>
             <Input
               id="goalDaysInput"
               type="number"

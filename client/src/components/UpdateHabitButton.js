@@ -72,7 +72,7 @@ function UpdateHabitButton({habit}){
                 <input name= "Habit goal" onChange={handleGoalDescriptionChange}></input>
                 <br/>
                 <br/>
-                <label name="Goal days">Number of days you would like to track this goal:</label>
+                <label name="Goal days">Number of days to track goal:</label>
                 <input name="Goal days" onChange={handleGoalDaysInput}></input>
                 <br/>
                 <br/>
