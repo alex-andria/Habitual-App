@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Box, Button } from "../styles";
@@ -25,7 +24,6 @@ function RecipeList() {
                 &nbsp;·&nbsp;
                 <cite>By {recipe.user.username}</cite>
               </p>
-              <ReactMarkdown>{recipe.instructions}</ReactMarkdown>
             </Box>
           </Recipe>
         ))
