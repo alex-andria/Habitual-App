@@ -7,7 +7,8 @@ import '../ProgressBar.css';
 function DailyProgressBarHabit({width = 400, habit}){
     const [value, setValue] = useState(0)
     const [percent, setPercent] = useState(0)
-    const [dailyTaskComplete, setDailyTaskComplete] = useState(true)
+    const [dailyTaskComplete, setDailyTaskComplete] = useState(null)
+    const [buttonName, setButtonName]= useState()
 
     const history = useHistory()
 
@@ -45,7 +46,7 @@ function DailyProgressBarHabit({width = 400, habit}){
                 percent < 1 ? (setPercent(percent + percentValue), setDailyTaskComplete(false),  add_goal_progress()) : setDailyTaskComplete(true)}
                 style={{backgroundColor: `${habit.color_code}`}}
                 >
-        {dailyTaskComplete? <p >Complete Goal</p> : <p>Goal Completed</p>}
+        {dailyTaskComplete ? <p>Goal Completed</p> : <p>Complete Goal</p>}
         </button>
 
         </>

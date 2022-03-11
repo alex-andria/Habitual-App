@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import UpdateHabitButton from "./UpdateHabitButton";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -8,13 +9,19 @@ function HabitSettings({habit}){
     
 const [showSettings, setShowSetings]= useState(false)
 
+const history = useHistory()
+
 function handleDeleteButton(){
+    history.push('/')
 
     fetch(`http://localhost:3000/habits/${habit.id}`, {
         method: 'DELETE'
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
+    });
+    // .then(history.push('/'));
+    // .then(res => {
+    //     console.log(res)
+    // })
+    history.push('/')
 
 }
 

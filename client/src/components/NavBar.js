@@ -30,7 +30,7 @@ function NavBar({ user, setUser }) {
         </Nav>
       </Wrapper>
 
-      <header>
+      {/* <header>
         <img 
           src={Habit} alt="Habitual Logo" 
           className="avatar" 
@@ -48,7 +48,7 @@ function NavBar({ user, setUser }) {
             </li>
           </ul>
         </nav>
-      </header>
+      </header> */}
     </>
   );
 }

@@ -8,6 +8,12 @@ import { useHistory } from "react-router";
 
 function HabitList({setIndivisualHabit}) {
   const [habits, setHabits] = useState([]);
+  const [reRender, setReRender]= useState(0)
+
+  useEffect(()=>{
+    setReRender((o)=>o+1)
+  }
+  ,[])
 
   const history = useHistory();
 
@@ -51,7 +57,7 @@ function HabitList({setIndivisualHabit}) {
       ) : (
         <>
           <h2>Currently No Habits Being Tracked</h2>
-          <Button as={Link} to="/new">
+          <Button as={Link} to="/newHabit">
             Create a New Habit Tracker
           </Button>
         </>

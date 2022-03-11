@@ -9,6 +9,8 @@ function UpdateHabitButton({habit}){
     const [goalDaysInput, setGoalDaysInput]= useState('')
     const [colorInput, setColorInput]= useState('')
 
+    const history = useHistory()
+
     console.log(habit.id)
 
     function handleShowHabitPatchForm(){
@@ -41,6 +43,8 @@ function UpdateHabitButton({habit}){
             color_code : colorInput
         }
         e.preventDefault()
+        history.push('/')
+
         fetch(`http://localhost:3000/habits/${habit.id}`, {
             method : 'PATCH',
             headers :{
@@ -49,7 +53,9 @@ function UpdateHabitButton({habit}){
             body : JSON.stringify(new_habit)
         })
         .then(res => res.json())
-        .then(res=> console.log(res))
+        .then(res=> {
+            history.push('/')
+        })
     }
 
     if(showHabitPatchForm===true){
