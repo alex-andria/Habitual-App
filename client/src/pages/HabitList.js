@@ -4,43 +4,51 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Box, Button } from "../styles";
 import Habit from "../components/Habit";
+import { useHistory } from "react-router";
 
-function HabitList() {
+function HabitList({setIndivisualHabit}) {
   const [habits, setHabits] = useState([]);
+
+  const history = useHistory();
 
   useEffect(() => {
     fetch("/habits")
       .then((r) => r.json())
       .then(setHabits);
   }, []);
+  console.log(habits);
 
   return (
     <Wrapper>
-      {habits.length > 0 ? 
-      (
-        habits.map((h) =>{
-          return  <Habit habit={h} key={h.id} />
-        })
-          
-        
-          // <Recipe key={habit.id}>
-          //   <Box>
-          //     <h2>{habit.habit_name}</h2>
-          //     {/* <div>
-          //       <br/>
-          //       <h3>Description:</h3>
-          //       <p>{habit.goal_description}</p>
-          //       <br/>
-          //       <h3>Number of days for goal:</h3>
-          //       <p>{habit.goal_days}</p>
-          //     </div> */}
-          //     <DailyProgressBar />              
-          //   </Box>
-          // </Recipe>
-        // ))
-
+      {habits.length > 0 ? (
+        habits.map((habit) => (
+          <Recipe
+            onClick={() => {
+              const id = habit.id;
+              fetch(`/habits/${id}`)
+                .then((res) => res.json())
+                .then((data) => {
+                  setIndivisualHabit(data);
+                  history.push(`/habits/${id}`)
+                });
+            }}
+            key={habit.id}
+          >
+            <Box>
+              <h2>{habit.habit_name}</h2>
+              {/* <div>
+                <br/>
+                <h3>Description:</h3>
+                <p>{habit.goal_description}</p>
+                <br/>
+                <h3>Number of days for goal:</h3>
+                <p>{habit.goal_days}</p>
+              </div> */}
+              <DailyProgressBar habit={habit} />
+            </Box>
+          </Recipe>
+        ))
       ) : (
-
         <>
           <h2>Currently No Habits Being Tracked</h2>
           <Button as={Link} to="/new">
@@ -48,7 +56,6 @@ function HabitList() {
           </Button>
         </>
       )}
-
     </Wrapper>
   );
 }

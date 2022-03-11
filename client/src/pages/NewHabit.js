@@ -26,6 +26,7 @@ function NewHabit({ user }) {
         goal_days: goalDaysInput,
         user_id: user.id,
         color_code: habitColorInput,
+        goal_tracker: 0
       }),
     }).then((r) => {
       setIsLoading(false);

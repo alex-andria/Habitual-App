@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import { useHistory } from "react-router";
 
 function UpdateHabitButton({habit}){
 
@@ -55,7 +55,7 @@ function UpdateHabitButton({habit}){
     if(showHabitPatchForm===true){
         return(
             <div>
-                <button onClick={handleBackButton}>Back</button>
+                <button style={{backgroundColor: `${habit.color_code}`}} onClick={handleBackButton}>Back</button>
             <form>
 
                 <label name="Habit name">Habit Name:</label>
@@ -74,7 +74,7 @@ function UpdateHabitButton({habit}){
                 <input name="color code" type="color" onChange={handleColorChange}></input>
                 <br/>
                 <br/>
-                <input type="submit" value="Update Habit" onClick={handleSubmit}></input>
+                <input style={{backgroundColor: `${habit.color_code}`}} type="submit" value="Update Habit" onClick={handleSubmit}></input>
             </form>
 
             </div> 
@@ -84,7 +84,7 @@ function UpdateHabitButton({habit}){
 
     return(
 
-        <button onClick={handleShowHabitPatchForm}>Change Habit</button>
+        <button style={{backgroundColor: `${habit.color_code}`}} onClick={handleShowHabitPatchForm}>Change Habit</button>
 
     )
 

@@ -31,10 +31,10 @@ function handleExitSettingsButton(){
 if(showSettings===true){
     return(
         <div>
-            <button onClick={handleExitSettingsButton}>Exit Settings</button>
+            <button style={{backgroundColor: `${habit.color_code}`}} onClick={handleExitSettingsButton}>Exit Settings</button>
             <br/>
             <br/>
-            <button onClick={handleDeleteButton}>Delete habbit</button>
+            <button style={{backgroundColor: `${habit.color_code}`}} onClick={handleDeleteButton}>Delete habbit</button>
             <br></br>
             <br/>
             <UpdateHabitButton habit={habit} />
@@ -47,7 +47,7 @@ if(showSettings===true){
 
     return(
         <>
-        <button onClick= {handleShowSettingsButton}> <img src= 'https://cdn-icons-png.flaticon.com/512/126/126472.png' width="40" height="40"></img> </button>
+     <img  style={{backgroundColor: `${habit.color_code}`, height: '40px', width: '50px', float: 'left', display: 'block'}} onClick= {handleShowSettingsButton} src= 'https://cdn-icons-png.flaticon.com/512/126/126472.png' width="40" height="40"></img> 
         </>
     )
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
+import Habit from "./Habit.png";
+// import "../nav.css";
 
 function NavBar({ user, setUser }) {
   function handleLogoutClick() {
@@ -13,19 +15,41 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <Wrapper>
-      <Logo>
-        <Link to="/">Habitual</Link>
-      </Logo>
-      <Nav>
-        <Button as={Link} to="/newHabit">
-          New Habit
-        </Button>
-        <Button variant="outline" onClick={handleLogoutClick}>
-          Logout
-        </Button>
-      </Nav>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Logo>
+          <Link to="/">Habitual</Link>
+        </Logo>
+        <Nav>
+          <Button as={Link} to="/newHabit">
+            New Habit
+          </Button>
+          <Button variant="outline" onClick={handleLogoutClick}>
+            Logout
+          </Button>
+        </Nav>
+      </Wrapper>
+
+      <header>
+        <img 
+          src={Habit} alt="Habitual Logo" 
+          className="avatar" 
+        />
+        <nav>
+          <ul>
+          <Logo>
+            <Link Link to="/">Habitual</Link>
+          </Logo>
+            <li>
+              <a href="#">Track New Habit</a>
+            </li>
+            <li>
+              <a href="#">Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </>
   );
 }
 

@@ -1,13 +1,14 @@
 class HabitsController < ApplicationController
-
+    skip_before_action :authorize, only: :update
+    
     def index
         render json: @current_user.habits
-      end
+    end
 
-      def show
+    def show
         habit = Habit.find(params[:id])
         render json: habit
-        end 
+    end 
     
       def create
         habit = @current_user.habits.create!(habit_params)
@@ -16,10 +17,21 @@ class HabitsController < ApplicationController
 
 
 
-    #   def update
-    #     habit = find_habit
-    #     habit.update!(update_habit_params)
-    #     render json: habit
+      def update
+        habit = find_habit
+        habit.update!(update_habit_params)
+        render json: habit
+      end
+
+      def increment_goal_tracker
+        habit = find_habit
+        habit.increment!(:goal_tracker)
+        render json: habit
+      end
+
+    #   def tracker_increment
+    #     habit = Habit.find(params[:id])
+    #     habit.increment_counter(:goal_tracker, params[:id])
     #   end
 
     #  def update
