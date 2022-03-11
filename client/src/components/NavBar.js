@@ -18,9 +18,6 @@ function NavBar({ user, setUser }) {
         <Link to="/">Habitual</Link>
       </Logo>
       <Nav>
-        <Button as={Link} to="/new">
-          New Recipe
-        </Button>
         <Button as={Link} to="/newHabit">
           New Habit
         </Button>
