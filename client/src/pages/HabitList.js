@@ -28,7 +28,7 @@ function HabitList({setIndivisualHabit}) {
     <Wrapper>
       {habits.length > 0 ? (
         habits.map((habit) => (
-          <Recipe
+          <ListBox style={{backgroundColor: `white`, border: '1rem solid', borderColor: `${habit.color_code}`}}
             onClick={() => {
               const id = habit.id;
               fetch(`/habits/${id}`)
@@ -52,7 +52,7 @@ function HabitList({setIndivisualHabit}) {
               </div> */}
               <DailyProgressBar habit={habit} />
             </Box>
-          </Recipe>
+          </ListBox>
         ))
       ) : (
         <>
@@ -71,7 +71,7 @@ const Wrapper = styled.section`
   margin: 40px auto;
 `;
 
-const Recipe = styled.article`
+const ListBox = styled.article`
   margin-bottom: 24px;
 `;
 

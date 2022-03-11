@@ -20,6 +20,7 @@ function DailyProgressBarHabit({width = 400, habit}){
         setValue(percent * width);
     });
     function add_goal_progress(){
+        history.push('/')
         fetch(`/increment/${habit.id}`)
         .then(res=>res.json)
         .then(data=> console.log(data))

@@ -38,7 +38,7 @@ function NavBar({ user, setUser }) {
         <nav>
           <ul>
           <Logo>
-            <Link Link to="/">Habitual</Link>
+            <a href="/">Habitual</a>
           </Logo>
             <li>
               <a href="#">Track New Habit</a>
@@ -54,19 +54,28 @@ function NavBar({ user, setUser }) {
 }
 
 const Wrapper = styled.header`
+  background-color: ##85C7F2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: black;
 `;
 
 const Logo = styled.h1`
   font-family: "Montserrat";
-  font-size: 2rem;
-  color: #00916e;
+  font-size: 3rem;
+  color: ##85C7F2;
   margin: 0;
   line-height: 1;
+  height: 80px;
+  margin-left: 40px;
+  object-fit: contain
+  width: 100%;
+  
+  
 
   a {
     color: inherit;
@@ -79,7 +88,7 @@ const Nav = styled.nav`
   gap: 4px;
   position: absolute;
   right: 8px;
-  background-color: black;
+  background-color: ##85C7F2;
 `;
 
 export default NavBar;
